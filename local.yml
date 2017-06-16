@@ -1,0 +1,23 @@
+# This playbook assumes that cyverse-ez-singularity directory is located in /opt/cyverse-ez-singularity/
+
+- name: this playbook will setup ez singularity locally
+  hosts: 127.0.0.1
+  connection: local
+
+  tasks:
+    - name: include variables found in /etc/cyverse/ez.yml, if it exists; if error, just ignore
+      include_vars:
+        file: /etc/cyverse/ez.yml
+      ignore_errors: yes
+
+    - name: remove the ez role if update is forced
+      command: ansible-galaxy remove singularity
+      when: ez_force_update is defined
+
+    - name: pull in any Ansible Galaxy roles from the requirements.yml
+      command: ansible-galaxy install -r /opt/cyverse-ez-docker/requirements.yml
+
+    - name: including cyverse ez role
+      static: no
+      include_role:
+        name: singularity
