@@ -15,7 +15,7 @@
       when: ez_force_update is defined
 
     - name: pull in any Ansible Galaxy roles from the requirements.yml
-      command: ansible-galaxy install -r /opt/cyverse-ez-docker/requirements.yml
+      command: ansible-galaxy install -r /opt/cyverse-ez-singularity/requirements.yml
 
     - name: including cyverse ez role
       static: no
