@@ -1,2 +1,2 @@
-- src: CyVerse_Ansible.singularity
+- src: CyVerse-Ansible.singularity
   name: singularity
