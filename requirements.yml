@@ -1,2 +1,5 @@
 - src: CyVerse-Ansible.singularity
   name: singularity
+
+- src: cyverse-ansible.ansible_go
+  name: go
