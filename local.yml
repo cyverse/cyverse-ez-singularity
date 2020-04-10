@@ -19,12 +19,10 @@
       command: ansible-galaxy install -c -r /opt/cyverse-ez-singularity/requirements.yml
 
     - name: install go if version is greater >= 3.0
-      static: no
       include_role:
         name: go
       when: singularity_version is defined and singularity_version != "" and singularity_version is version('3.0', operator='ge')
 
     - name: including cyverse ez role
-      static: no
       include_role:
         name: singularity
