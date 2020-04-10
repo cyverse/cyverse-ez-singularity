@@ -18,10 +18,10 @@
     - name: pull in any Ansible Galaxy roles from the requirements.yml
       command: ansible-galaxy install -c -r /opt/cyverse-ez-singularity/requirements.yml
 
-    - name: install go if version is greater >= 3.0
-      include_role:
-        name: go
-      when: singularity_version is defined and singularity_version != "" and singularity_version is version('3.0', operator='ge')
+      #- name: install go if version is greater >= 3.0
+      #  include_role:
+      #    name: go
+      #  when: singularity_version is defined and singularity_version != "" and singularity_version is version('3.0', operator='ge')
 
     - name: including cyverse ez role
       include_role:
